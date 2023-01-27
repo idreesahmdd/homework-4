@@ -13,7 +13,7 @@ let avgGanjil = 0;
 // PUSH NILAI KE ARRAY ANGKA
 function arrayAngka(banyakAngka, batasAngka) {
   for (i = 0; i < banyakAngka; i++) {
-    angka.push(Math.floor(Math.random() * batasAngka) + 1);
+    angka.push(Math.ceil(Math.random() * batasAngka));
   }
 }
 arrayAngka(100, 50);
