@@ -1,11 +1,11 @@
 let angka = [];
 let genap = [];
 let ganjil = [];
-let minGenap = 1 / 0;
+let minGenap = 0;
 let maxGenap = 0;
 let totalGenap = 0;
 let avgGenap = 0;
-let minGanjil = 1 / 0;
+let minGanjil = 0;
 let maxGanjil = 0;
 let totalGanjil = 0;
 let avgGanjil = 0;
@@ -33,7 +33,7 @@ function arrayGenapGanjil(banyakAngka) {
 console.log(arrayGenapGanjil(angka.length));
 
 //       GENAP
-function minArrayGenap(banyakGenap) {
+function minArrayGenap(banyakGenap, minGenap) {
   for (i = 0; i < banyakGenap; i++) {
     if (genap[i] < minGenap) {
       minGenap = genap[i];
@@ -41,9 +41,9 @@ function minArrayGenap(banyakGenap) {
   }
   return minGenap;
 }
-console.log(minArrayGenap(genap.length));
+console.log(minArrayGenap(genap.length, 1 / 0));
 
-function maxArrayGenap(banyakGenap) {
+function maxArrayGenap(banyakGenap, maxGenap) {
   for (i = 0; i < banyakGenap; i++) {
     if (genap[i] > maxGenap) {
       maxGenap = genap[i];
@@ -51,7 +51,7 @@ function maxArrayGenap(banyakGenap) {
   }
   return maxGenap;
 }
-console.log(maxArrayGenap(genap.length));
+console.log(maxArrayGenap(genap.length, 0));
 
 function totalArrayGenap(banyakGenap) {
   for (i = 0; i < banyakGenap; i++) {
@@ -61,14 +61,14 @@ function totalArrayGenap(banyakGenap) {
 }
 console.log(totalArrayGenap(genap.length));
 
-function averageGenap(total, indexGenap) {
-  avgGenap = total / indexGenap;
+function avgArrayGenap() {
+  avgGenap = totalGenap / genap.length;
   return avgGenap;
 }
-console.log(averageGenap(totalGenap, genap.length));
+console.log(avgArrayGenap());
 
 //   GANJIL
-function minArrayGanjil(banyakGanjil) {
+function minArrayGanjil(banyakGanjil, minGanjil) {
   for (i = 0; i < banyakGanjil; i++) {
     if (ganjil[i] < minGanjil) {
       minGanjil = ganjil[i];
@@ -76,9 +76,9 @@ function minArrayGanjil(banyakGanjil) {
   }
   return minGanjil;
 }
-console.log(minArrayGanjil(ganjil.length));
+console.log(minArrayGanjil(ganjil.length, 1 / 0));
 
-function maxArrayGanjil(banyakGanjil) {
+function maxArrayGanjil(banyakGanjil, maxGanjil) {
   for (i = 0; i < banyakGanjil; i++) {
     if (ganjil[i] > maxGanjil) {
       maxGanjil = ganjil[i];
@@ -86,7 +86,7 @@ function maxArrayGanjil(banyakGanjil) {
   }
   return maxGanjil;
 }
-console.log(maxArrayGanjil(ganjil.length));
+console.log(maxArrayGanjil(ganjil.length, 0));
 
 function totalArrayGanjil(banyakGanjil) {
   for (i = 0; i < banyakGanjil; i++) {
@@ -96,18 +96,18 @@ function totalArrayGanjil(banyakGanjil) {
 }
 console.log(totalArrayGanjil(ganjil.length));
 
-function averageGanjil(total, indexGanjil) {
-  avgGanjil = total / indexGanjil;
+function avgArrayGanjil() {
+  avgGanjil = totalGanjil / ganjil.length;
   return avgGanjil;
 }
-console.log(averageGanjil(totalGanjil, ganjil.length));
+console.log(avgArrayGanjil());
 
 //              PERBANDINGAN
 //    PERBANDINGAN MIN GENAP DAN GANJIL
 function perbandinganMin() {
-  if (minGenap > minGanjil) {
+  if (minArrayGenap(genap.length, 1 / 0) > minArrayGanjil(ganjil.length, 1 / 0)) {
     result = "Min array genap lebih besar";
-  } else if (minGenap < minGanjil) {
+  } else if (minArrayGenap(genap.length, 1 / 0) < minArrayGanjil(ganjil.length, 1 / 0)) {
     result = "Min array ganjil lebih besar";
   } else {
     result = "Min array genap dan ganjil SAMA";
@@ -118,9 +118,9 @@ console.log(perbandinganMin());
 
 //    PERBANDINGAN MAX GENAP DAN GANJIL
 function perbandinganMax() {
-  if (maxGenap > maxGanjil) {
+  if (maxArrayGenap(genap.length, 0) > maxArrayGanjil(ganjil.length, 0)) {
     result = "Max array genap lebih besar";
-  } else if (maxGenap < maxGanjil) {
+  } else if (maxArrayGenap(genap.length, 0) < maxArrayGanjil(ganjil.length, 0)) {
     result = "Max array ganjil lebih besar";
   } else {
     result = "Max array genap dan ganjil SAMA";
@@ -131,9 +131,9 @@ console.log(perbandinganMax());
 
 //    PERBANDINGAN TOTAL GENAP DAN GANJIL
 function perbandinganTotal() {
-  if (totalGenap > totalGanjil) {
+  if (totalArrayGenap(genap.length) > totalArrayGanjil(ganjil.length)) {
     result = "Total penjumlahan array genap lebih besar";
-  } else if (totalGenap < totalGanjil) {
+  } else if (totalArrayGenap(genap.length) < totalArrayGanjil(ganjil.length)) {
     result = "Total penjumlahan array ganjil lebih besar";
   } else {
     result = "Total penjumlahan array genap dan ganjil SAMA";
@@ -144,9 +144,9 @@ console.log(perbandinganTotal());
 
 //    PERBANDINGAN RATA-RATA GENAP DAN GANJIL
 function perbandinganAverage() {
-  if (avgGenap > avgGanjil) {
+  if (avgArrayGenap() > avgArrayGanjil()) {
     result = "Rata-rata array genap lebih besar";
-  } else if (avgGenap < avgGanjil) {
+  } else if (avgArrayGenap() < avgArrayGanjil()) {
     result = "Rata-rata array ganjil lebih besar";
   } else {
     result = "Rata-rata array genap dan ganjil SAMA";
