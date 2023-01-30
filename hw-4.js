@@ -23,7 +23,7 @@ function arrayGenapGanjil(banyakAngka) {
 }
 console.log(arrayGenapGanjil(angka.length));
 
-//       GENAP
+//       FUNCTION GENAP DAN GANJIL
 function findMin(angka) {
   let min = angka[0];
   for (i = 0; i < angka.length; i++) {
@@ -106,7 +106,6 @@ totalArrayGenap = hitungTotal(genap);
 console.log("Total Array Genap = " + totalArrayGenap);
 avgArrayGenap = totalArrayGenap / genap.length;
 console.log("Rata-rata Array Genap = " + avgArrayGenap);
-totalArrayGanjil = hitungTotal(ganjil);
 
 // GANJIL
 minArrayGanjil = findMin(ganjil);
